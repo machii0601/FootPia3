@@ -11,9 +11,15 @@ class User::PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.save
-    redirect_to 'index'
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.save
+      flash[:notice] = "投稿できました"
+      redirect_to posts_path
+    else
+      @posts = Post.all
+      render :new
+    end
   end
 
   def destroy

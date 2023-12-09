@@ -1,5 +1,5 @@
 class Genru < ApplicationRecord
-  has_many :genre
+  belongs_to :group
   validates :level_name, presence: true
   validates :area_name, presence: true
 end

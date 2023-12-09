@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
-  belongs_to :genre
-  belongs_to :group
+  has_many :genres, dependent: :destroy
+  has_many :group_users, dependent: :destroy
   validates :owner_first_name, presence: true
   validates :owner_last_name, presence: true
   validates :owner_first_name_kane, presence: true

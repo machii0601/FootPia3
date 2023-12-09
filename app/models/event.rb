@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :user
+  has_many :users, dependent: :destroy
   has_one_attached :image
   validates :title, presence: true
   validates :descreption, presence: true
