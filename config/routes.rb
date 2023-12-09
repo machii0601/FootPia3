@@ -32,7 +32,7 @@ scope module: :user do
   resources :groups, only: [:new, :show, :edit]
   resources :favorites, only: [:show]
   resources :post_comments, only: [:new, :index, :show]
-  resources :posts, only: [:index, :new]
+  resources :posts, only: [:index, :new, :update, :create, :destroy]
   resources :users, only: [:show, :edit, :update] do
     collection do
       patch :withdrawal
