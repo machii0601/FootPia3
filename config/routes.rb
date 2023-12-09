@@ -15,6 +15,7 @@ scope module: :user do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   get "confirm"=>"users#confirm",as: "confirm"
+  get "search" => "searches#search"
   resources :events, only: [:index, :show, :edit] do
     collection do
       get :events
