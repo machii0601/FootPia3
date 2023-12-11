@@ -3,10 +3,11 @@ class User::SearchesController < ApplicationController
 
   def search
     @range = params[:range]
-    if @range == "User"
-      @users = User.looks(params[:search], params[:word])
+    @word = params[:word]
+    if @range == "Post"
+      @posts = Post.looks(params[:search], @word)
     else
-      @posts = Post.looks(params[:search], params[:word])
+      @post_comments = PostComment.looks(params[:search], @word)
     end
   end
 
@@ -14,5 +15,4 @@ class User::SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:title, :post_content)
   end
-
 end

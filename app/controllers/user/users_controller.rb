@@ -16,6 +16,12 @@ class User::UsersController < ApplicationController
   def confirm
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+
   def withdrawal
     @user = current_user
     @user.update(is_active: false)

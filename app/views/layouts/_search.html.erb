@@ -1,13 +1,10 @@
 <% if user_signed_in? %>
-  <div class="search_form">
+<div class="search_form">
   <%= form_with url: search_path, local: true, method: :get do |f| %>
-    <%= f.select :genre, options_for_select([['都道府県'], ['レベル']]) %>
-      <% if params[:genre] == '都道府県' %>
-        <%= f.select :genre, options_for_select(['北海道', '青森', '岩手', '...（省略）']), prompt: '都道府県を選択してください' %>
-      <% else params[:genre] == 'レベル' %>
-        <%= f.select :genre, options_for_select(['初級', '中級', '上級']), prompt: 'レベルを選択してください' %>
-      <% end %>
-        <%= f.submit "検索", class: "btn-sm btn-primary" %>
-  <% end %>
+      <%= f.text_field :word %>
+      <%= f.select :range, options_for_select([['Post'], ['PostComment']]) %>
+      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
+      <%= f.submit "検索", class: "btn-sm btn-primary" %>
+    <% end %>
   </div>
 <% end %>

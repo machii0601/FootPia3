@@ -7,6 +7,7 @@
   <tr>
 	  <th>introduction</th>
 	  <th><%= user.bio %></th>
+	  <th><%= link_to "いいね一覧", favorites_user_path(user.id) %></th>
   </tr>
 </table>
 

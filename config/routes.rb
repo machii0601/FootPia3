@@ -31,10 +31,13 @@ scope module: :user do
 
   resources :genres, only: [:index, :edit]
   resources :groups, only: [:new, :show, :edit]
-  resources :favorites, only: [:show]
+  resources :favorite, only: [:show, :create, :destroy]
   resources :post_comments, only: [:new, :index, :show]
   resources :posts, only: [:index, :new, :update, :create, :destroy]
   resources :users, only: [:show, :edit, :update] do
+    member do
+      get :favorites
+    end
     collection do
       patch :withdrawal
     end
