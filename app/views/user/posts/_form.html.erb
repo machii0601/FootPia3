@@ -1,0 +1,9 @@
+
+<%= post.label :title, 'タイトル' %><br>
+<%= post.text_field :title %><br>
+<%= post.label :post_content, 'コンテンツ' %><br>
+<%= post.text_area :post_content %><br>
+<%= post.label :tag, 'タグ' %><br>
+<%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
+<%= post.text_field :tag, value: @post.tags.pluck(:name) %><br>
+<%= post.submit btn_name %>

@@ -3,17 +3,33 @@ class User::PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      @post.save_tags(params[:post][:tag])
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+       @post.save_tags(params[:post][:tag])
       flash[:notice] = "投稿できました"
       redirect_to posts_path
     else
@@ -23,6 +39,8 @@ class User::PostsController < ApplicationController
   end
 
   def destroy
+    Post.find(params[:id]).destroy()
+    redirect_to root_path
   end
 
 

@@ -1,12 +1,10 @@
 <div class='container'>
   <div class='row'>
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
-      <h2 class="text-center mt-4">新規投稿</h2>
-      <h2>Actions --></h2>
-      <%= link_to 'Top', root_path %>
+      <h2 class="text-center mt-4">Posts#edit</h2>
       <h2>Post --></h2>
       <%= form_with model: @post do |post| %>
-        <%= render 'form', post: post, btn_name: "投稿" %>
+        <%= render 'form', post: post, btn_name: "更新" %>
       <% end %>
     </div>
   </div>
