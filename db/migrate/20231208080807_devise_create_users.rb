@@ -16,6 +16,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :bio
       t.boolean :is_active,default: true
 
+      t.boolean :is_deleted,default: false
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

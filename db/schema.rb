@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
     t.string "position"
     t.string "bio"
     t.boolean "is_active", default: true
+    t.boolean "is_deleted", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
