@@ -9,5 +9,8 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
 
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
 end
