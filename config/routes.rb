@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   namespace :admin do
   resources :users, only: [:index, :show, :edit, :update]
   put "/admin/users/:id/hide" => "users#hide", as: 'users_hide'
+  resources :posts, except: [:new] do
+    resources :comments, only: [:index, :destroy]
+  end
 end
 
 scope module: :user do
@@ -34,7 +37,7 @@ scope module: :user do
   resources :groups, only: [:new, :show, :edit]
   resources :favorite, only: [:show, :create, :destroy]
   resources :post_comments, only: [:new, :index, :show, :create, :destroy]
-  resources :posts, only: [:index, :new, :update, :create, :destroy, :show, :edit] do
+  resources :posts do
     resources :post_comments, only: [:create, :destroy]
   end
   resources :tags, only: [:index, :show, :destroy]

@@ -9,6 +9,6 @@
 <h2>Posts --></h2>
 <% @posts.each do |post| %>
   <div>
-    <%= link_to post.title, post_path(post) %>
+    <%= link_to post.title, admin_post_path(post) %>
   </div>
 <% end %>

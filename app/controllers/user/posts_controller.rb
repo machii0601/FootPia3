@@ -41,7 +41,7 @@ class User::PostsController < ApplicationController
   end
 
   def destroy
-    Post.find(params[:id]).destroy()
+    Post.find(params[:id]).destroy
     redirect_to root_path
   end
 
