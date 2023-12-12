@@ -20,11 +20,13 @@ class User::PostCommentsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   private
 
   def  post_comment_params
-    params.require(:post_comment).permit(:comment)
+    params.require(:post_comment).permit(:post_comment)
   end
 end

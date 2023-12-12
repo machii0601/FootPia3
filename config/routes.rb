@@ -33,7 +33,7 @@ scope module: :user do
   resources :genres, only: [:index, :edit]
   resources :groups, only: [:new, :show, :edit]
   resources :favorite, only: [:show, :create, :destroy]
-  resources :post_comments, only: [:new, :index, :show]
+  resources :post_comments, only: [:new, :index, :show, :create, :destroy]
   resources :posts, only: [:index, :new, :update, :create, :destroy, :show, :edit] do
     resources :post_comments, only: [:create, :destroy]
   end
