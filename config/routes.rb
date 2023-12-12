@@ -34,7 +34,8 @@ scope module: :user do
   resources :groups, only: [:new, :show, :edit]
   resources :favorite, only: [:show, :create, :destroy]
   resources :post_comments, only: [:new, :index, :show]
-  resources :posts, only: [:index, :new, :update, :create, :destroy, :show, :edit]
+  resources :posts, only: [:index, :new, :update, :create, :destroy, :show, :edit] do
+    resources :post_comments, only: [:create, :destroy]
   resources :tags, only: [:index, :show, :destroy]
   resources :users, only: [:show, :edit, :update] do
     member do
