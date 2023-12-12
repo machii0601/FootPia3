@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
   resources :users, only: [:index, :show, :edit]
+  put "/admin/users/:id/hide" => "users#hide", as: 'users_hide'
 end
 
 scope module: :user do
