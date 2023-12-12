@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     sessions: 'user/sessions'
   }
   namespace :admin do
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit, :update]
   put "/admin/users/:id/hide" => "users#hide", as: 'users_hide'
 end
 
@@ -36,6 +36,7 @@ scope module: :user do
   resources :post_comments, only: [:new, :index, :show]
   resources :posts, only: [:index, :new, :update, :create, :destroy, :show, :edit] do
     resources :post_comments, only: [:create, :destroy]
+  end
   resources :tags, only: [:index, :show, :destroy]
   resources :users, only: [:show, :edit, :update] do
     member do
