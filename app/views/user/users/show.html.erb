@@ -7,6 +7,8 @@
     </div>
     <div class="col-md-8 offset-1">
 <h2>投稿内容</h2>
+<h2>コメント件数</h2>
+<p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
     </div>
   </div>
 </div>
