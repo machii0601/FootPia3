@@ -1,8 +1,8 @@
 class CreateGroupUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :group_users do |t|
-      t.references :user, null: false
-      t.references :group,null: false
+      t.references :user, foreign_key: true, null: false
+      t.references :group, foreign_key: true, null: false
       t.timestamps
     end
   end

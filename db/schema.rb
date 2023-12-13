@@ -175,6 +175,8 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "follows", "users", column: "followed_id"
   add_foreign_key "follows", "users", column: "following_id"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
   add_foreign_key "tag_maps", "posts"
   add_foreign_key "tag_maps", "tags"
 end
