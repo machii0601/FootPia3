@@ -2,8 +2,8 @@
   <%= flash[:notice] %>
   <div class='row'>
     <div class='col-md-3'>
-      <%= render partial: "users/info", locals: { user: @user }%>
-      <%#= render partial: "post_comments/new", locals: { post_comment: @post_comment } %>
+      <%= render partial: "user/users/info", locals: { user: @user }%>
+      <%#= render partial: "posts/new", locals: { post_comment: @post_comment } %>
     </div>
 
     <div class='col-md-8 offset-md-1'>

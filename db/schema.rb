@@ -81,13 +81,6 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
-  create_table "genrus", force: :cascade do |t|
-    t.string "level_name", null: false
-    t.string "area_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "group_users", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "group_id", null: false
@@ -98,13 +91,11 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "genre_id", null: false
-    t.integer "owner_id"
+    t.integer "owner_id", null: false
     t.string "group_name", null: false
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["genre_id"], name: "index_groups_on_genre_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -124,11 +115,6 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tag_maps", force: :cascade do |t|

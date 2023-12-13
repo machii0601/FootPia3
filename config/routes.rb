@@ -34,7 +34,10 @@ scope module: :user do
   end
 
   resources :genres, only: [:index, :edit]
-  resources :groups, only: [:new, :show, :edit, :index, :create, :update]
+  resources :groups, only: [:new, :show, :edit, :index, :create, :update] do
+    post 'join' => 'groups#join'
+    delete 'withdrawal' => 'groups#withdrawal'
+  end
   resources :favorite, only: [:show, :create, :destroy]
   resources :post_comments, only: [:new, :index, :show, :create, :destroy]
   resources :posts do
