@@ -7,4 +7,8 @@ class Group < ApplicationRecord
   validates :owner_last_name_kana, presence: true
   validates :group_name, presence: true
   validates :description, presence: true
+
+  def is_owned_by?(user)
+    owner.id == user.id
+  end
 end

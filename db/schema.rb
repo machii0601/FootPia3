@@ -99,10 +99,7 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
 
   create_table "groups", force: :cascade do |t|
     t.integer "genre_id", null: false
-    t.string "owner_last_name", null: false
-    t.string "owner_first_name", null: false
-    t.string "owner_last_name_kana", null: false
-    t.string "owner_first_name_kana", null: false
+    t.integer "owner_id"
     t.string "group_name", null: false
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
