@@ -13,17 +13,6 @@ class User::PostCommentsController < ApplicationController
     redirect_to post_path(params[:post_id])
   end
 
-  def new
-  end
-
-  def index
-  end
-
-  def show
-    @post = Post.find(params[:id])
-    @post_comment = PostComment.new
-  end
-
   private
 
   def  post_comment_params

@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-  resources :users, only: [:index, :show, :edit, :update]
-  put "/admin/users/:id/hide" => "users#hide", as: 'users_hide'
-  resources :posts, except: [:new] do
-    resources :comments, only: [:index, :destroy]
+    resources :users, only: [:index, :show, :edit, :update]
+    put "/admin/users/:id/hide" => "users#hide", as: 'users_hide'
+    resources :posts, except: [:new] do
+      resources :comments, only: [:index, :destroy]
+    end
   end
-end
 
 scope module: :user do
   root to: 'homes#top'
@@ -37,21 +37,17 @@ scope module: :user do
     end
   end
 
-  resources :genres, only: [:index, :edit]
   resources :groups, only: [:new, :show, :edit, :index, :create, :update] do
     post 'join' => 'groups#join'
     delete 'withdrawal' => 'groups#withdrawal'
   end
-  resources :favorite, only: [:show, :create, :destroy]
-  resources :post_comments, only: [:new, :index, :show, :create, :destroy]
+
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   resources :tags, only: [:index, :show, :destroy]
   resources :users, only: [:show, :edit, :update] do
-    member do
-      get :favorites
-    end
     collection do
       patch :withdrawal
     end

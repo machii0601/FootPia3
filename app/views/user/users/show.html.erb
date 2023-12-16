@@ -12,6 +12,12 @@
           <li><%= link_to user_group.group.group_name, group_path(user_group.group) %></li>
         <% end %>
       </ul>
+      <h2>お気に入り</h2>
+      <ul>
+        <% @user.favorites.each do |favorite| %>
+          <li><%= link_to favorite.post.title, post_path(favorite.post) %></li>
+        <% end %>
+      </ul>
       <h2>投稿内容</h2>
       <% @user.posts.each do |post| %>
         <%= link_to post.title, post_path(post.id) %>

@@ -1,1 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Raleway&family=Rubik+Lines&display=swap');
+
+html,
+body {
+  font-family: 'Raleway', 'Noto Sans JP', sans-serif;
+}
+
+.logo {
+  font-family: 'Rubik Lines', monospace;
+}

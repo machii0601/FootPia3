@@ -1,0 +1,9 @@
+<% if post.favorites.is_favorite?(post, current_user) %>
+  <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+    <i class="fa-solid fa-star"></i>
+  <% end %>
+<% else %>
+  <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+    <i class="fa-regular fa-star"></i>
+  <% end %>
+<% end %>
