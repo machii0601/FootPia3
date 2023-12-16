@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+  devise_scope :user do
+    post "user/guest_sign_in", to: "user/sessions#guest_sign_in"
+  end
+
   namespace :admin do
   resources :users, only: [:index, :show, :edit, :update]
   put "/admin/users/:id/hide" => "users#hide", as: 'users_hide'
