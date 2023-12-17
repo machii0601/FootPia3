@@ -1,33 +1,23 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>グループ名</th>
-      <th>紹介文</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% groups.each do |group| %>
-      <tr>
-        <td>
-        </td>
-        <td><%= link_to group.group_name,group_path(group) %></td>
-        <td><%= group.description %></td>
-        <% if group.is_owned_by?(current_user) %>
-        <td>
-          <%= link_to 'Edit', edit_group_path(group), class: "group_#{group.id} btn btn-sm btn-success" %>
-        </td>
-        <% else %>
-        <td>
-          <% unless group.is_join?(current_user) %>
-            <%= link_to 'Join', group_join_path(group), method: :post %>
+<div class="row">
+  <% groups.each do |group| %>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5><%= link_to group.group_name, group_path(group) %></h5>
+          <%= group.description %>
+        </div>
+        <div class="card-footer">
+          <% if group.is_owned_by?(current_user) %>
+            <%= link_to 'Edit', edit_group_path(group), class: "group_#{group.id} btn btn-sm btn-success" %>
           <% else %>
-            <%= link_to 'Withdrawal', group_withdrawal_path(group), method: :delete %>
+            <% unless group.is_join?(current_user) %>
+              <%= link_to 'Join', group_join_path(group), method: :post %>
+            <% else %>
+              <%= link_to 'Withdrawal', group_withdrawal_path(group), method: :delete %>
+            <% end %>
           <% end %>
-        </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

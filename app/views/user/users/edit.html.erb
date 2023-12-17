@@ -21,9 +21,19 @@
         <%= f.text_field :last_name_kana, class: "form-control name" %>
       </div>
       <div class="form-group">
-        <%= f.label :profile_image,"プロフィール画像"%>
-        <%= f.file_field :profile_image,accept: "image/*", class: "form-control name" %>
+        <div class="custom-file">
+          <%= f.file_field :profile_image, id: "profile_image", accept: "image/*", class: "custom-file-input" %>
+          <%= f.label :profile_image, "プロフィール画像", for: "profile_image", class: "custom-file-label" %>
+        </div>
       </div>
+
+      <script>
+        $('.custom-file-input').on('change',function(){
+          console.log('CHANGE');
+          $(this).next('.custom-file-label').html($(this)[0].files[0].name);
+        })
+      </script>
+
       <div class="form-group">
         <%= f.label :soccer_futsal_experience,"サッカー,フットサル歴" %>
         <%= f.text_field :soccer_futsal_experience, class: "form-control introduction" %>
@@ -38,8 +48,8 @@
       </div>
 
       <div class="form-group d-flex">
-        <%= f.submit "Update", class: 'btn btn-secondary' %>
-        <%= link_to "退会する", confirm_path, class: "form-control name"%>
+        <%= f.submit "Update", class: 'btn btn-secondary mr-3' %>
+        <%= link_to "退会する", confirm_path, class: "btn btn-danger"%>
       </div>
     <% end %>
   </div>
