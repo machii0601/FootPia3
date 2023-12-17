@@ -1,5 +1,6 @@
 class User::FavoritesController < ApplicationController
   before_action :post_find, only: [:create, :destroy]
+  before_action :authenticate_user!
 
   def create
     current_user.favorites.new(post_id: @post.id).save
