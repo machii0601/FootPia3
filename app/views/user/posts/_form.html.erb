@@ -1,9 +1,19 @@
 
-<%= post.label :title, 'タイトル' %><br>
-<%= post.text_field :title %><br>
-<%= post.label :post_content, 'コンテンツ' %><br>
-<%= post.text_area :post_content %><br>
-<%= post.label :tag, 'タグ' %><br>
-<%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
-<%= post.text_field :tag, value: @post.tags.pluck(:name) %><br>
-<%= post.submit btn_name %>
+<div class="form-group">
+  <%= post.label :title, 'タイトル' %>
+  <%= post.text_field :title, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= post.label :post_content, 'コンテンツ' %>
+  <%= post.text_area :post_content, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= post.label :tag, 'タグ' %>
+  <%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
+  <%= post.text_field :tag, value: @post.tags.pluck(:name), class: "form-control" %>
+</div>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <%= post.submit btn_name, class: "btn btn-secondary btn-block" %>
+  </div>
+</div>
