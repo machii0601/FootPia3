@@ -4,8 +4,11 @@
 html,
 body {
   font-family: 'Raleway', 'Noto Sans JP', sans-serif;
+  height: 100%;
 }
 
-.logo {
-  font-family: 'Rubik Lines', monospace;
+body {
+  background: linear-gradient(125deg, rgba(175, 220, 184, .86), rgba(183, 219, 175, .5));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

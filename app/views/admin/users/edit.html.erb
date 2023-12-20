@@ -1,4 +1,4 @@
-<h1>Admin::Users#edit</h1>
+<h1>user edit</h1>
    <div class="container">
     <div class="row">
       <div class="col-lg-7 col-md-9 mx-auto align-items-center">
@@ -8,25 +8,28 @@
           <tr class="form-group">
             <td>氏名</td>
             <td>
-              <%= f.text_field :last_name %><%= f.text_field :first_name, class: "ml-3" %>
+              <%= f.text_field :last_name, class: "ml-3 form-control"%>
+            </td>
+            <td>
+              <%= f.text_field :first_name, class: "ml-3 form-control" %>
             </td>
           </tr>
           <tr class="form-group">
             <td>フリガナ</td>
             <td>
-              <%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana, class: "ml-3" %>
+              <%= f.text_field :last_name_kana, class: "ml-3 form-control" %>
+            </td>
+            <td>
+              <%= f.text_field :first_name_kana, class: "ml-3 form-control" %>
             </td>
           </tr>
-          <tr>
-            <td>会員ステータス</td>
-            <td>
+          </table>
+            <div class="text-center">会員ステータス
                 <%= f.radio_button :is_active, true, checked: true %> 有効
                 <%= f.radio_button :is_active, false %> 退会
-            </td>
-          </tr>
-        </table>
-        <div class="row text-center">
-          <div class="col-8"><%= f.submit "変更を保存", class: "btn btn-dark rounded-pill text-lig ml-5" %></div>
+                </div>
+        <div class="text-center">
+          <%= f.submit "変更を保存", class: "btn btn-dark rounded-pill text-lig mt-5" %>
         </div>
         <% end %>
       </div>
