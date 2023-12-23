@@ -19,10 +19,10 @@
             <td><%= user.email %></td>
             <td class="<%= user.is_active ? 'text-gray' : 'text-green' %>"><%= user.is_active ? '有効' : '退会済み' %></td>
             <td>
-              <%= link_to 'admin show', admin_user_path(user) %>
+              <%= link_to 'show', admin_user_path(user) %>
             </td>
             <td>
-              <%= link_to 'admin edit', edit_admin_user_path(user) %>
+              <%= link_to 'edit', edit_admin_user_path(user) %>
             </td>
           </tr>
         <% end %>

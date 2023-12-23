@@ -1,5 +1,5 @@
 class Admin::CommentsController < ApplicationController
-
+  before_action :authenticate_!
   def index
     @post = Post.find(params[:post_id])
     @post_comments = @post.post_comments

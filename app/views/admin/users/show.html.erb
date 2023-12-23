@@ -1,4 +1,28 @@
-<h1>Users show</h1>
-<% if user_signed_in? && @user.id == current_user.id %>
-		<%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
-<% end %>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+    </div>
+    <div class="col-md-8 offset-1">
+      <h2 class="mt-3">Join Groups</h2>
+      <ul>
+        <% @user.group_users.each do |user_group| %>
+          <li><%= link_to user_group.group.group_name, group_path(user_group.group) %></li>
+        <% end %>
+      </ul>
+      <h2 class="mt-3">お気に入り</h2>
+      <ul>
+        <% @user.favorites.each do |favorite| %>
+          <li><%= link_to favorite.post.title, post_path(favorite.post) %></li>
+        <% end %>
+      </ul>
+      <h2 class="mt-3">投稿内容</h2>
+      <% @user.posts.each do |post| %>
+        <%= link_to post.title, post_path(post.id) %>
+        <%= post.post_content %>
+        <p>コメント件数：<%= post.post_comments.count %></p>
+      <% end %>
+      <h2 class="mt-3">ステ-タス</h2>
+      <%=  @user.is_active? ? "有効" : "退会済み" %>
+    </div>
+  </div>
+</div>
