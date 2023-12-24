@@ -9,3 +9,8 @@ Admin.create!(
    email: 'ss@ss',
    password: 'password',
 )
+Admin.create!(
+   owner_id: 'ss@ss',
+   password: 'password',
+
+)
