@@ -12,6 +12,9 @@ class User::GroupsController < ApplicationController
     @post_comment = PostComment.new
     @group = Group.find(params[:id])
     @user = User.find(params[:id])
+    unless @group.is_join?(current_user)
+      redirect_to groups_path, notice: "詳細を見るにはグループにjoinしてください"
+    end
   end
 
   def new

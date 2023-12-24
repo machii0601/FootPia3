@@ -1,0 +1,63 @@
+<header class="shadow-sm bg-white">
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <% if admin_signed_in? %>
+        <%#= link_to admin_path(current_admin) ,class: 'nav-link text-dark' do %>
+          <span class="logo"><i class="fa-solid fa-futbol mr-2"></i>FootPia</span>
+        <%# end %>
+      <% else %>
+        <a class="navbar-brand text-dark" href="/"><span class="logo"><i class="fa-solid fa-futbol mr-2"></i>FootPia</span></a>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if admin_signed_in? %>
+          <li>
+            <%# link_to admin_path(current_admin),class: 'nav-link text-dark' do %>
+              <i class="fas fa-home"></i> home
+            <%# end %>
+          </li>
+          <li>
+            <%= link_to groups_path,class: 'nav-link text-dark' do %>
+              <i class="fa-solid fa-people-group"></i> group
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to posts_path ,class: 'nav-link text-dark' do %>
+              <i class="fa-solid fa-clipboard"></i> posts
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
+              <i class="fas fa-sign-out-alt"></i> log out
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to root_path,class: 'nav-link text-dark' do %>
+              <i class="fas fa-home"></i> home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to about_path,class: 'nav-link text-dark' do %>
+              <i class="fas fa-link"></i> about
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_registration_path,class: 'nav-link text-dark' do %>
+              <i class="fas fa-user-plus"></i> signup
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_session_path ,class: 'nav-link text-dark' do %>
+              <i class="fas fa-sign-in-alt"></i> login
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
