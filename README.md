@@ -1,24 +1,26 @@
-# README
+# Futto Pia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+​いつでも、どこでも、目的別にフットサルができるがテーマのコミュニティサイト
+### テーマを選んだ理由
+​社会人になって友達とのフットサルが難しくなった。SNSで参加者を募り、簡単にフットサルの試合を開催できるサイトが欲しいと思い、作成しました。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### ターゲットユーザ
+- 一人でもフットサルに参加してみたい人
+- フットサルが好きな人
+- 出会いを求めてる人
+- 本気でフットサルに取り組みたい人
+### 主な利用シーン
+- 休みの日に何もすることがない時に近くで開催されているフットサルに参加する
+- 友達が欲しいと思った時にフットサルをきっかけに作る
+- 運動不足を解消したいと思った時に参加する
+## 設計書
+​後ほど作成予定
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+## 使用素材
+フリー素材使用予定
