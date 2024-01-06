@@ -40,6 +40,7 @@ scope module: :user do
   resources :groups, only: [:new, :show, :edit, :index, :create, :update] do
     post 'join' => 'groups#join'
     delete 'withdrawal' => 'groups#withdrawal'
+    resources :group_comments, only: [:create, :destroy]
   end
 
   resources :posts do

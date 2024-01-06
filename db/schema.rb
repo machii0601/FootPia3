@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_11_002603) do
+ActiveRecord::Schema.define(version: 2024_01_06_121308) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 2023_12_11_002603) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followed_id"], name: "index_follows_on_followed_id"
     t.index ["following_id"], name: "index_follows_on_following_id"
+  end
+
+  create_table "group_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "group_users", force: :cascade do |t|

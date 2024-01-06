@@ -31,4 +31,28 @@
           </tr>
         </tbody>
       </table>
+      <% @group.group_comments.order(created_at: :desc).each do |gc| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <%= "#{gc.user.first_name} #{gc.user.last_name}" %>
+              </div>
+              <div class="col-md-4">
+                <%= gc.created_at.in_time_zone('Asia/Tokyo').strftime('%Y年%m月%d日 %H:%M') %>
+              </div>
+            </div>
+            <%= gc.comment %>
+          </div>
+        </div>
+      <% end %>
+      <%= form_with model: @comment, url: group_group_comments_path(@group), method: :post do |f| %>
+        <div class="form-group">
+          <%= f.label :comment, "コメント" %>
+          <%= f.text_area :comment, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "投稿する" %>
+        </div>
+      <% end %>
     </div>
