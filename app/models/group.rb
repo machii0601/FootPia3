@@ -2,6 +2,7 @@ class Group < ApplicationRecord
   has_many :genres, dependent: :destroy
   has_many :group_users, dependent: :destroy
   has_many :group_comments, dependent: :destroy
+  has_many :events
   validates :group_name, presence: true
   validates :description, presence: true
 

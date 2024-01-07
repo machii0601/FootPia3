@@ -1,2 +1,41 @@
-<h1>User::Events#index</h1>
-<p>Find me in app/views/user/events/index.html.erb</p>
+<div class="container">
+  <div id="calendar"></div>
+</div>
+
+<style>
+  .fc .fc-daygrid-day-top {
+    flex-direction: initial;
+  }
+</style>
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    $(document).ready(function () {
+        if ($('#calendar').length > 0 ) {
+            var calType = 'dayGridMonth';
+            if (window.innerWidth < 991.98) {
+                calType = 'listMonth';
+            }
+
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                timeZone: 'UTC',
+                events: '/calendar_json',
+                plugins: [dayGridPlugin, listPlugin],
+                initialView: calType,
+                locale: 'ja',
+                height: 650,
+                dayMaxEvents: 5,
+                windowResize: function () {
+                    if (window.innerWidth < 991.98) {
+                        calendar.changeView('listMonth');
+                    } else {
+                        calendar.changeView('dayGridMonth');
+                    }
+                },
+            });
+            calendar.render();
+        }
+    });
+  });
+</script>

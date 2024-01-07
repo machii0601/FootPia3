@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2024_01_06_121308) do
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.string "title", null: false
     t.text "description", null: false
     t.datetime "start_time", null: false

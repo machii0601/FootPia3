@@ -13,6 +13,7 @@ class User::GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @user = User.find(params[:id])
     @comment = GroupComment.new
+    @event = Event.new
     unless @group.is_join?(current_user)
       redirect_to groups_path, notice: "詳細を見るにはグループにjoinしてください"
     end

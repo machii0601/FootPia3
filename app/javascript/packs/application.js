@@ -15,3 +15,13 @@ import "../stylesheets/application";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// fullcalendar
+import * as Calendar from "@fullcalendar/core";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import "@fullcalendar/core/locales/ja";
+import listPlugin from "@fullcalendar/list";
+
+window.FullCalendar = Calendar;
+window.dayGridPlugin = dayGridPlugin;
+window.listPlugin = listPlugin;
