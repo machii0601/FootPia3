@@ -11,9 +11,12 @@
 </table>
 
 <% if !user.guest_user? && user == current_user %>
-    <%= link_to edit_user_path(current_user), class: "btn btn-secondary btn-block" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
+  <li>
+    <%= link_to 'ユーザー一覧', follows_path %>
+  </li>
+  <%= link_to edit_user_path(current_user), class: "btn btn-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
 <% end %>
 
 <div class="mt-3">
