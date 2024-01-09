@@ -1,4 +1,8 @@
 class User::HomesController < ApplicationController
+
+  def index
+  end
+
   def about
   end
 
