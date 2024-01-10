@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :group_comments, dependent: :destroy
   has_many :follows
+  has_many :activities, dependent: :destroy
   has_one_attached :profile_image
 
   GUEST_USER_EMAIL = "guest@example.com"

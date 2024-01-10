@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'activities/index'
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
