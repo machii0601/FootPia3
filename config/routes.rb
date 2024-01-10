@@ -30,6 +30,9 @@ scope module: :user do
   #     get :events
   #   end
   # end
+  resources :activities, only: [:index] do
+    patch :read, on: :member
+  end
 
   resources :follows, only: [:index, :show, :create, :destroy]
 

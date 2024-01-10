@@ -35,8 +35,13 @@
             <% end %>
           </li>
           <li>
-            <%=  link_to posts_path ,class: 'nav-link text-dark' do %>
+            <%= link_to posts_path ,class: 'nav-link text-dark' do %>
               <i class="fa-solid fa-clipboard"></i> posts
+            <% end %>
+          </li>
+          <li>
+            <%= link_to activities_path ,class: 'nav-link text-dark' do %>
+              <i class="fa-solid fa-bell"></i>bell
             <% end %>
           </li>
           <li>

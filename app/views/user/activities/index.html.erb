@@ -1,0 +1,9 @@
+<h1>Activities#index</h1>
+<% if @activities.present? %>
+  <% @activities.each do |activity| %>
+    <%= render "#{activity.action_type}", activity: activity %>
+  <%= paginate @activities %>
+  <% end %>
+<% else %>
+  <p>通知はありません</p>
+<% end %>
