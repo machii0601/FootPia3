@@ -2,7 +2,7 @@ class User::FollowsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all # ユーザー一覧取得
+    @users = User.all
   end
 
   def show
@@ -22,14 +22,5 @@ class User::FollowsController < ApplicationController
     #   TODO : 勝手に他のユーザーのフォローを外されないようにparams[:id]で対象のユーザーIDを受け取る
     Follow.find_by(user_id: params[:id], follow_id: current_user.id).delete
     redirect_to follows_path
-  end
-
-  def index
-  end
-
-  def followers
-  end
-
-  def following
   end
 end

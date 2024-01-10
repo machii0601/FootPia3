@@ -30,9 +30,7 @@ scope module: :user do
   #   end
   # end
 
-  Rails.application.routes.draw do
-    resources :follows, only: [:index, :show, :create, :destroy]
-  end
+  resources :follows, only: [:index, :show, :create, :destroy]
 
   get "/calendar", to: "events#index"
   get "/calendar_json", to: "events#calendar_json"

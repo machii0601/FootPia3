@@ -30,6 +30,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to follows_path,class: 'nav-link text-dark' do %>
+              <i class="fa-solid fa-people-carry-box"></i> users
+            <% end %>
+          </li>
+          <li>
             <%=  link_to posts_path ,class: 'nav-link text-dark' do %>
               <i class="fa-solid fa-clipboard"></i> posts
             <% end %>

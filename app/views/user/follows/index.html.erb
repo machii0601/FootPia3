@@ -1,23 +1,25 @@
-<h1>Follows一覧</h1>
-<% @users.each do |user| %>
-  <div>
-    <%# ユーザーのメールアドレスを表示 %>
-    <%= link_to user.email, follow_path(user) %>
+<div class="container">
+  <h1>All Users</h1>
+  <% @users.each do |user| %>
+    <div>
+      <%# ユーザーのメールアドレスを表示 %>
+      <%= link_to "#{user.first_name} #{user.last_name}", follow_path(user) %>
 
-    <%# 自分の場合は、フォロー対象外 %>
-    <% unless user == current_user %>
-      <%# フォロー済みかどうか確認する %>
-      <%# following?は、Userモデルで定義しており、見つからない場合はnilが戻る %>
-      <% if user.following?(current_user, user.id).nil? %>
-        <%# フォローする : follows#create %>
-        <%# TODO: current_userをここで渡すと勝手に追加されるため、フォロー対象のユーザーの情報のみ渡す %>
-        <%= link_to 'Follow', follows_path(follow_id: user.id), method: :post %>
-      <% else %>
-        <%# フォローを外す : follows#destroy %>
-        <%# TODO: current_userをここで渡すと勝手に削除されるため、フォロー対象のユーザーをidで渡す %>
-        <%= link_to 'UnFollow', follow_path(user.id), method: :delete %>
+      <%# 自分の場合は、フォロー対象外 %>
+      <% unless user == current_user %>
+        <%# フォロー済みかどうか確認する %>
+        <%# following?は、Userモデルで定義しており、見つからない場合はnilが戻る %>
+        <% if user.following?(current_user, user.id).nil? %>
+          <%# フォローする : follows#create %>
+          <%# TODO: current_userをここで渡すと勝手に追加されるため、フォロー対象のユーザーの情報のみ渡す %>
+          <%= link_to 'Follow', follows_path(follow_id: user.id), method: :post %>
+        <% else %>
+          <%# フォローを外す : follows#destroy %>
+          <%# TODO: current_userをここで渡すと勝手に削除されるため、フォロー対象のユーザーをidで渡す %>
+          <%= link_to 'UnFollow', follow_path(user.id), method: :delete %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
 

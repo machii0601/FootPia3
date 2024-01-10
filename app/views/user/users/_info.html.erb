@@ -11,9 +11,9 @@
 </table>
 
 <% if !user.guest_user? && user == current_user %>
-  <li>
-    <%= link_to 'ユーザー一覧', follows_path %>
-  </li>
+  <div class="my-3">
+    <%= link_to 'フォロー', follow_path(current_user), class: "btn btn-secondary btn-block" %>
+  </div>
   <%= link_to edit_user_path(current_user), class: "btn btn-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
