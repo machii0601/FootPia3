@@ -14,13 +14,13 @@ class User::FollowsController < ApplicationController
   def create
     # フォローレコードが1件もない場合は、レコードを作る
     Follow.find_or_create_by(user_id: params[:follow_id], follow_id: current_user.id)
-    redirect_to follows_path
+    redirect_to request.referer
   end
 
   def destroy
     # フォローレコードを探し、フォローレコードを削除する
     #   TODO : 勝手に他のユーザーのフォローを外されないようにparams[:id]で対象のユーザーIDを受け取る
     Follow.find_by(user_id: params[:id], follow_id: current_user.id).delete
-    redirect_to follows_path
+    redirect_to request.referer
   end
 end

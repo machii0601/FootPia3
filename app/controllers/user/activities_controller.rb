@@ -5,6 +5,7 @@ class User::ActivitiesController < ApplicationController
   def read
     activity =  Activity.find(params[:id])
     unless activity.read?
+      pp '-------------------------'
       activity.update(read: true)
     end
     case activity.action_type

@@ -1,18 +1,31 @@
 <div class="container">
   <%# フォロー一覧表示 %>
-  <h3>Follows --></h3>
-  <% @follows.each do |follower| %>
-    <div>
-      <%= "#{follower.user.first_name} #{follower.user.last_name}" %>
-    </div>
-  <% end %>
+  <h3><-- Follows --></h3>
+  <div class="row">
+    <% @follows.each do |follow| %>
+      <div class="col-md-4 mb-2">
+        <div class="card">
+          <div class="card-body">
+            <%= image_tag follow.user.get_profile_image, class: "mr-2", style: "width: 100px; height: 100px; object-fit: cover;" %>
+            <%= link_to "#{follow.user.first_name} #{follow.user.last_name}", user_path(follow.user) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 
   <%# フォローワー一覧表示 %>
-  <h3>Followers --></h3>
-  <% @followers.each do |follower| %>
-    <div>
-      <%= "#{follower.user.first_name} #{follower.user.last_name}" %>
-    </div>
-  <% end %>
-</div>
+  <h3><-- Followers --></h3>
+  <div class="row">
+    <% @followers.each do |follower| %>
+      <div class="col-md-4 mb-2">
+        <div class="card">
+          <div class="card-body">
+            <%= image_tag follower.user.get_profile_image, class: "mr-2", style: "width: 100px; height: 100px; object-fit: cover;" %>
+            <%= link_to "#{follower.user.first_name} #{follower.user.last_name}", user_path(follower.user) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

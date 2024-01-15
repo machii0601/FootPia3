@@ -1,10 +1,10 @@
 <% if activity.read? %>
-  <div style="padding: 10px; background-color: red;">
+  <div class="mb-3 p-2" style="background-color: #EB7154">
 <% else %>
-  <div style="padding: 10px; background-color: blue;">
+  <div class="mb-3 p-2" style="background-color: #8789EB">
 <% end %>
   <%= link_to read_activity_path(activity), method: :patch do %>
-    <p><%= activity.subject.post.title %>に<%= activity.user.first_name %> <%= activity.user.last_name %>さんからいいねが来ました</p>
+    <p class="m-0"><%= activity.subject.post.title %>に<%= activity.user.first_name %> <%= activity.user.last_name %>さんからいいねが来ました</p>
   <% end %>
   </div>
   </div>
