@@ -27,7 +27,6 @@ class Post < ApplicationRecord
     old_tags = current_tags - tag_list
     # (2)新規に追加されたタグ
     new_tags = tag_list - current_tags
-    p current_tags
     old_tags.each do |old|
       self.tags.delete Tag.find_by(name: old)
     end
