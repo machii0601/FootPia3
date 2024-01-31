@@ -11,7 +11,8 @@ class User::EventsController < ApplicationController
       redirect_to group_path(params[:group_id])
     else
       @user = current_user
-      render "user/groups/index"
+      @group = Group.find(params[:group_id])
+      render "user/groups/show"
     end
   end
 

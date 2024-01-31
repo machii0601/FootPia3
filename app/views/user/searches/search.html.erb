@@ -2,10 +2,10 @@
   <div class='row'>
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
       <h2 class="text-center mt-4">検索</h2>
-        <table class="table table-hover table-inverse">
         <!--検索対象モデルがUserの時 -->
         <% if @range == "Post" %>
         <h2>Posts search for "<%= @word %>"</h2>
+        <table class="table table-hover table-inverse">
           <thead>
             <tr>
               <th>title</th>
@@ -15,30 +15,33 @@
           <tbody>
             <% @posts.each do |post| %>
               <tr>
-                <td><%= post.title %></td>
+                <td><%=link_to post.title, post_path(post) %></td>
               </tr>
             <% end %>
           </tbody>
+        </table>
         <% else %>
           <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
-          <thead>
-            <tr>
-              <th>ユーザー名</th>
-              <th>コメント</th>
-            </tr>
-          <tbody>
           <h2>PostComments search for "<%= @word %>"</h2>
-          <% @post_comments.each do |post_comment| %>
-            <tr>
-              <td>
-                <%= link_to post_comment.user.first_name, user_path(post_comment.user_id) %>
-              </td>
-              <td><%= link_to post_comment.post_comment , post_comment_path(post_comment.id) %></td>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>ユーザー名</th>
+                <th>コメント</th>
               </tr>
-            <% end %>
-          </tbody>
+            <tbody>
+            <% @post_comments.each do |post_comment| %>
+              <tr>
+                <td>
+                  <%= link_to post_comment.user.first_name, user_path(post_comment.user_id) %>
+                </td>
+                <td><%= link_to post_comment.post_comment , post_comment_path(post_comment.id) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         <% end %>
-      </table>
+
     </div>
   </div>
 </div>

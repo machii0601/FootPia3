@@ -38,6 +38,14 @@
         </div>
         <div class="card-body">
           <%= form_with model: @event, url: group_events_path(@group), method: :post do |f| %>
+          <% if @event.errors.any? %>
+            <%= @event.errors.count %>errors
+            <ul>
+              <% @event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
             <div class="form-group">
               <%= f.label :start_time, "開始時刻" %>
               <%= f.datetime_field :start_time, class: "form-control" %>
